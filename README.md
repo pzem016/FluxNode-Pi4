@@ -22,11 +22,24 @@ Hardware used:
   - There are many ways to flash the image based on your available hardware. 
     - The **easy** way is to use the external enclosure listed above. Then from the comfort of your desktop operating system, use balenaEtcher to write the image. Etcher is very intuitive where you select the downloaded image, select the destination then click flash. Etcher will ask if you are sure because the destination NVMe drive is large, answer yes.
     - The **hard** way is to create a [Raspberry Pi official image with recommended software](https://downloads.raspberrypi.org/raspios_full_armhf/images/raspios_full_armhf-2022-04-07/2022-04-04-raspios-bullseye-armhf-full.img.xz) using an optional SD card and then completing the standard Pi configuration tasks. Once complete, use the Argon case to house the NVMe drive and flash it with the Ubuntu Pi OS.
-### Modifying the flashed image
-There are three things that will be addressed: 
+### Modifying the flashed image configuration ***prior*** to first boot
+After using Etcher, the flashed NVMe divice will be unmounted. You **must** unplug it and plug it back in so the MSFAT configuration partition will be mounted. The folowing configuration items will be addressed: 
 1. Booting the Pi from the NVMe device
+   - [The official Wiki is reference](https://wiki.ubuntu.com/ARM/RaspberryPi)Change the bootloader
+     - To set the device to boot, we will modify the config.txt file and change four things
+       In the [pi4] section, add and comment out to look like this:
+       ```
+       [pi4]
+       kernel=vmlinuz
+       initramfs initrd.img followkernel
+       # kernel=uboot_rpi_4.bin
+       ```
+       In the [all] section, comment out the device_tree_address:
+       ```
+       [all]
+       # device_tree_address=0x03000000
+       ```
+      Save and exit the file.
+
 1. Modifing the default username
 1. Disabling IPV6
-
-
-
