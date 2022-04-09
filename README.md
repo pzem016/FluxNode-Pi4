@@ -9,12 +9,12 @@ Hardware used:
 - [Sabrent USB 3.2 Type-C Tool-Free Enclosure for M.2 PCIe NVMe and SATA SSDs (EC-SNVE)](https://www.amazon.com/gp/product/B08RVC6F9Y/)
 - Optional SD Card for the hard way discussed below.
 
-## Steps taken to prepare a Raspberry Pi 4 8GB With Ubuntu 20.04.4
+## Steps to prepare a Raspberry Pi 4 8GB With Ubuntu 20.04.4
 - Download the official Ubuntu Server 20.04.4 LTS 64-bit Pi Image
   - [Ubuntu Server 20.04.4 LTS - 64-bit download](https://ubuntu.com/download/raspberry-pi/thank-you?version=20.04.4&architecture=server-arm64+raspi)
 - Download Balena Etcher - Available for most operating systems.
   - [balenaEtcher - Auto detected OS Download](https://www.balena.io/etcher/)
-  - Look at the bottom of the page in the assets section for alternates if needed.
+  - Look at the bottom of the page in the assets section for alternate OS downloads if needed.
 - Optional Software
   - [SD Card Formatter by SD Association](https://www.sdcard.org/downloads/)
 - Flashing the Ubuntu image
