@@ -17,7 +17,7 @@ Hardware used:
   - Look at the bottom of the page in the assets section for alternate OS downloads if needed.
 - Optional Software
   - [SD Card Formatter by SD Association](https://www.sdcard.org/downloads/)
-- Flashing the Ubuntu image
+### Flashing the Ubuntu image
   - There are many ways to flash the image based on your available hardware. 
     - The easy way is to use the external enclosure listed above. Then from the comfort of your operating system, use balenaEtcher to write the image. Etcher is intuitive where you select the downloaded image, select the destination then click flash. Etcher will ask if you are sure because the destination NVMe drive is large.
     - The hard way is to create a [Raspberry Pi official image with recommended software](https://downloads.raspberrypi.org/raspios_full_armhf/images/raspios_full_armhf-2022-04-07/2022-04-04-raspios-bullseye-armhf-full.img.xz) and complete the configuration. Then use the Argon case to house the NVMe drive and flash it with the Pi OS.
