@@ -1,4 +1,4 @@
-# FluxNode-Pi4
+# Flux Cumulus Node on a Raspberry Pi 4B with 8GB Ram
 The purpose of this repository is to memorialize preparing a Pi for use as a Flux Cumulus Node. The official online youtube example is a good foundation starting point, however it maintains the dependency for the Pi to boot off of a SD card which, in my opinion, is a bad idea because the example configuration still has files being read/written to the SD card. Booting off of a NVMe device, since it is required to pass disk benchmark speeds anyway, is a more dependable solution and simplifies things in the long run thus making the installation mimic the virtual server setup examples.
 
 Hardware used:
