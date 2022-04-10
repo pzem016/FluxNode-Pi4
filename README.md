@@ -74,7 +74,6 @@ After using Etcher, the flashed NVMe divice will be unmounted. You **must** unpl
        ```
        sudo nano /etc/sysctl.conf
        ```
-
        ```
        net.ipv6.conf.all.disable_ipv6 = 1
        net.ipv6.conf.default.disable_ipv6 = 1
@@ -87,7 +86,6 @@ After using Etcher, the flashed NVMe divice will be unmounted. You **must** unpl
        sudo nano /etc/rc.local
        ```
        Insert the following into the new file
-       
        ```
        #!/bin/bash
        #/etc/rc.local
@@ -97,11 +95,12 @@ After using Etcher, the flashed NVMe divice will be unmounted. You **must** unpl
        exit 0
        ```
        Save and exit the file.
-       
+
      - Change permissions on /etc/rc.local
        ```
        sudo chmod 755 /etc/rc.local
        ```
+       
      - To enact these changes, a reboot is required
        ```
        sudo reboot
