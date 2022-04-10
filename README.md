@@ -87,21 +87,21 @@ After using Etcher, the flashed NVMe divice will be unmounted. You **must** unpl
        sudo nano /etc/rc.local
        ```
        Insert the following into the new file
-       ```
-
+       
        ```
        #!/bin/bash
        #/etc/rc.local
        /etc/init.d/procps restart
        exit 0
        ```
+       
        Save and exit the file.
 
      - Change permissions on /etc/rc.local
        ```
        sudo chmod 755 /etc/rc.local
        ```
-       
+
      - To enact these changes, a reboot is required
        ```
        sudo reboot
