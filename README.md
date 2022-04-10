@@ -178,3 +178,22 @@ After using Etcher, the flashed NVMe device will be unmounted. You **must** unpl
         sudo systemctl reboot
         ```
   You should now be able to connect to the Pi using your favorite ssh client and with your public key.
+### Updating the system and installing required packages
+  1. The base operating system must be uptaed using the "apt" command. First we must query the repositories for updates using the below command:
+     ```
+     sudo apt update
+     ```
+  1. To apply the updates to the system we once again use the "apt" command as follows:
+     ```
+     sudo apt upgrade -y
+     ```
+  1. There are some additional baseline requirements that must be installed:
+     ```
+     sudo apt install curl net-tools npm sysbench -y
+     ```
+     The npm package is fairly large and will take a few minutes.
+  
+  1. Once all of the updates are required, I suggest rebooting the system:
+     ```
+     sudo systemctl reboot
+     ```
