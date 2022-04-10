@@ -116,7 +116,7 @@ After using Etcher, the flashed NVMe device will be unmounted. You **must** unpl
 
    - Although this step is not required, it is highly recommended to force ssh to use public keys for authentication. If you were to publish ssh to the Pi server through your firewall, there are BOT's on the Internet that will hammer ssh attempting to gain unauthorized access.
      - It is beyond the scope of this article to create a private/public key for use in ssh. Some simple Googling of this process will help. I would discourage the key generation process that does not use a password to access the private key that is generated. Password protecting the generated private key serves as a form of two factor authentication, What you have and What you know.
-     - In Linux or macOS (I generally don't work on Windows) there is a native command "ssh-copy-id" to assist in the key transfer process and execute the command as follows:
+     - In Linux or macOS (I generally don't work on Windows) there is a native command "ssh-copy-id" to assist in the key transfer process so execute the command as follows:
        ```
        cd ~/.ssh
        ssh-copy-id -i <your public id file name> jsmith@<the Pi IP Address>
@@ -124,57 +124,57 @@ After using Etcher, the flashed NVMe device will be unmounted. You **must** unpl
        When connecting for the first time to the Pi server, being asked to trust the server's public key is normal. It requires you to type either yes or y to continue (depending on the OS being used). Once the command connects to the server and attempts to authenticate, you must type in your password as specified in the above prior step.
 
        It is worth the mention that puTTY, WinSCP or SecureCRT have similar functions to transfer the public key to the server so look at your ssh client for details. When I do work on Windows, I use SecureCRT which is not free but a very stable and well-maintained product (highly recommended).
-   - With the key transfer preparation work complete we are ready to modify /etc/ssh/sshd_config. This file can be overwhelming so we will search for keywords and modify the values accordingly. Using "nano" as the text editor, the command [ctrl]w will allow us to search. Most of the parameters are commented out so simply removing the "#" will enable the parameter. If any of the below suggested modifications are commented out, then remove the "#" first then set the values accordingly. Let’s start.
-   ```
-   sudo nano /etc/ssh/sshd_config
-   ```
-   Search for [ctrl]w:
-     - PermitRootLogin
-       
-       Change to:
-
-       PermitRootLogin prohibit-password
-     - PubkeyAuthentication
-       
-       Change to:
-
-       PubkeyAuthentication yes
-     - UsePAM
-       
-       Change to:
-
-       UsePAM no
-     - ChallengeResponseAuthentication
-       
-       Change to:
-
-       ChallengeResponseAuthentication no
-     - PasswordAuthentication
-       
-       Change to:
-
-       PasswordAuthentication no
-     - PermitEmptyPasswords
-       
-       Change to:
-
-       PermitEmptyPasswords no
-     - Optionally change the port to something other than 22, such as 64222
-       - Port
-         
-         Change to:
-
-         Port 64222
-
-     Save the file and exit.
-
-     The ssh daemon needs to be restarted to enact the change.
-     ```
-     sudo systemctl restart ssh.service
-     ```
-     Or simply reboot the server.
-     ```
-     sudo systemctl reboot
-     ```
-   You should now be able to connect to the Pi using your favorite ssh client and your public key.
+   - With the key transfer preparation work complete, we are ready to modify /etc/ssh/sshd_config. This file can be overwhelming so we will search for keywords and modify the values accordingly. Using "nano" as the text editor, the command [ctrl]w will allow us to search. Most of the parameters are commented out so simply removing the "#" will enable the parameter. If any of the below suggested modifications are commented out, then remove the "#" first then set the values accordingly. Let’s start.
    
+      ```
+      sudo nano /etc/ssh/sshd_config
+      ```
+      Search for [ctrl]w:
+        - PermitRootLogin
+          
+          Change to:
+
+          PermitRootLogin prohibit-password
+        - PubkeyAuthentication
+          
+          Change to:
+
+          PubkeyAuthentication yes
+        - UsePAM
+          
+          Change to:
+
+          UsePAM no
+        - ChallengeResponseAuthentication
+          
+          Change to:
+
+          ChallengeResponseAuthentication no
+        - PasswordAuthentication
+          
+          Change to:
+
+          PasswordAuthentication no
+        - PermitEmptyPasswords
+          
+          Change to:
+
+          PermitEmptyPasswords no
+        - Optionally change the port to something other than 22, such as 64222
+          - Port
+            
+            Change to:
+
+            Port 64222
+
+        Save the file and exit.
+
+        The ssh daemon needs to be restarted to enact the change.
+        ```
+        sudo systemctl restart ssh.service
+        ```
+        Or simply reboot the server.
+        ```
+        sudo systemctl reboot
+        ```
+   You should now be able to connect to the Pi using your favorite ssh client and your public key.
