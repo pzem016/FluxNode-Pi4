@@ -46,23 +46,24 @@ After using Etcher, the flashed NVMe divice will be unmounted. You **must** unpl
    - The offical Wiki above points to [cloud init](https://cloudinit.readthedocs.io/en/latest/topics/examples.html) where line number 139 shows the default user name syntax. I find it as a security exposure to have a know username, in this case "ubuntu" as half of the puzzle to hacking is a user name. What will be done is to create a user accont per your specification and further require that when using the "sudo" command, your password will be required to continue with command execution. I have used the generic John Smith name and you should change it accordingly. The file that needs editing is named "user-data" and notice it does not have an extension so you will need to choose your text editor to open the file. The "user-file" is in YAML format so you must pay careful attention to the indentations for the content to be propery understood.
 
      -  Comment out the expire section in the "user-data" file:
-       ```
-       #chpasswd:
-       #  expire: true
-       #  list:
-       #  - ubuntu:ubuntu
-       ```
-     -  Add the following just after the above commented out section:
-       ```
-       system_info:
-         default_user:
-           name: jsmith
-           plain_text_passwd: 'password'
-           home: /home/jsmith
-           shell: /bin/bash
-           lock_passwd: False
-           gecos: John Smith
-           groups: [adm, audio, cdrom, dialout, floppy, video, plugdev, dip, netdev]
-           sudo: ALL=(ALL) PASSWD:ALL
-       ```
+        ```
+        #chpasswd:
+        #  expire: true
+        #  list:
+        #  - ubuntu:ubuntu
+        ```
+     -  Add the following just after the above "chpasswd" commented out section:
+        ```
+        system_info:
+          default_user:
+            name: jsmith
+            plain_text_passwd: 'password'
+            home: /home/jsmith
+            shell: /bin/bash
+            lock_passwd: False
+            gecos: John Smith
+            groups: [adm, audio, cdrom, dialout, floppy, video, plugdev, dip, netdev]
+            sudo: ALL=(ALL) PASSWD:ALL
+        ```
+        Again, this file is in YAML format and must have the proper indentations. Do not use tabs. Instead use two space to make sure everything lines up per the above example. 
 1. Disabling IPV6
