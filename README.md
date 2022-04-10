@@ -27,6 +27,7 @@ After using Etcher, the flashed NVMe divice will be unmounted. You **must** unpl
 1. Booting the Pi from the NVMe device
    - [The official Wiki is reference](https://wiki.ubuntu.com/ARM/RaspberryPi) Change the bootloader
      - To set the device to boot from the USB MVNe device, we will modify the config.txt file and change four things to reflect the following changes.
+     
        In the [pi4] section, add and comment out to look like this:
        ```
        [pi4]
