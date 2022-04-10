@@ -117,7 +117,7 @@ After using Etcher, the flashed NVMe divice will be unmounted. You **must** unpl
      - In Linux or macOS (I don't work on Windows) there is a native command "ssh-copy-id" to assist in the key transfer process and utilizes the command as follows:
        ```
        cd ~/.ssh
-       ssh-copy-id -i **your public id file name** jsmith@**the Pi IP Address**
+       ssh-copy-id -i <your public id file name> jsmith@<the Pi IP Address>
        ```
        When connecting for the first time to the Pi server, being asked to trust the server's public key is normal. It requires you to type either yes or y to continue (depending on the OS being used). Once the command connects to the server and attempts to authenticate, you must type in you password as specified in the  above prior step.
 
