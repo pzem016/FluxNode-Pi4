@@ -69,4 +69,40 @@ After using Etcher, the flashed NVMe divice will be unmounted. You **must** unpl
 
 ### Modifing some configurations post installation 
 1. **Disabling IPV6**
-   - There have been compalints about IPv6 making the Pi network unstable. I have not personally experienced the issue but I will typically disable IPV6 for many reasons. My internal network does not use it, DNS can be adversely affected since IPV6 will be used first then IPv4 thus slowing down name resolution. To accomplish this task we will need to append 
+   - There have been compalints about IPv6 making the Pi network unstable. I have not personally experienced the issue but I will typically disable IPV6 for many reasons. My internal network does not use it, DNS can be adversely affected since IPV6 will be used first then IPv4 thus slowing down name resolution. To accomplish this task we will need to append some lines to /etc/sysctl.conf and create a file and change permissions on /etc/rc.local
+     - Modify /etc/sysctl.conf by appending to the bottom of the file
+       ```
+       sudo nano /etc/sysctl.conf
+       ```
+
+       ```
+       net.ipv6.conf.all.disable_ipv6 = 1
+       net.ipv6.conf.default.disable_ipv6 = 1
+       net.ipv6.conf.lo.disable_ipv6 = 1
+       ```
+       Save and exit the file.
+
+     - Create the file /etc/rc.local
+       ```
+       sudo nano /etc/rc.local
+       ```
+       Insert the following into the new file
+       ```
+
+       ```
+       #!/bin/bash
+       #/etc/rc.local
+       /etc/init.d/procps restart
+       exit 0
+       ```
+       Save and exit the file.
+
+     - Change permissions on /etc/rc.local
+       ```
+       sudo chmod 755 /etc/rc.local
+       ```
+       
+     - To enact these changes, a reboot is required
+       ```
+       sudo reboot
+       ```
