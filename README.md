@@ -164,7 +164,7 @@ After using Etcher, the flashed NVMe divice will be unmounted. You **must** unpl
             
             Change to:
 
-            Port 642222
+            Port 64222
 
         Save the file and exit.
 
