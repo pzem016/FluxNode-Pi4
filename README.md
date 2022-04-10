@@ -129,32 +129,39 @@ After using Etcher, the flashed NVMe divice will be unmounted. You **must** unpl
    Search for [ctrl]w:
      - PermitRootLogin
        
-       Change to: 
+       Change to:
+
        PermitRootLogin prohibit-password
      - PubkeyAuthentication
        
        Change to:
+
        PubkeyAuthentication yes
      - UsePAM
        
        Change to:
+
        UsePAM no
      - ChallengeResponseAuthentication
        
        Change to:
+
        ChallengeResponseAuthentication no
      - PasswordAuthentication
        
        Change to:
+
        PasswordAuthentication no
      - PermitEmptyPasswords
        
        Change to:
+
        PermitEmptyPasswords no
      - Optionaly change to port to something other than 22, such as 64222
        - Port
          
          Change to:
+         
          Port 642222
 
      Save the file and exit.
