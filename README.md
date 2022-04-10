@@ -19,6 +19,7 @@ Hardware used:
   - [Official FluxNode Setup Guide](https://www.youtube.com/watch?v=oKl3TelzYgY)
   - [Raspberry Pi FluxNode Setup Guide](https://www.youtube.com/watch?v=n2CMwfahUBI)
 
+# This guide
 ## Steps to prepare a Raspberry Pi 4 8GB With Ubuntu 20.04.4
 - Download the official Ubuntu Server 20.04.4 LTS 64-bit Pi Image
   - [Ubuntu Server 20.04.4 LTS - 64-bit download](https://ubuntu.com/download/raspberry-pi/thank-you?version=20.04.4&architecture=server-arm64+raspi)
