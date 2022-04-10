@@ -106,12 +106,14 @@ After using Etcher, the flashed NVMe divice will be unmounted. You **must** unpl
        sudo reboot
        ```
 1. **Changing the user password**
+
    In the above configuration for setting the default user credential, a simple clear text password was shown. Because the user configuration file "user-data" remains on the device in clear text, use the standard Linux password utility to change your password once logged in as follows. Again the generic name is used in this example.
    ```
    passwd jsmith
    ```
    Your are prompted for the current password and then the new password followed by confirmation of the new password. 
 1. **Changing the SSH Daemon to force public key authentication only**
+
    - Although this step is not required, it is highly reccomended to force ssh to use public keys for authentication. If you were to publish ssh to the Pi server through your firewall, there are BOT's on the Internet that will hammer ssh attempting to gain unauthorized access.
      - It is beyond the scope of this article to create a private/public key for use in ssh. Some simple Googling of this process will help. I would discourage the key generation process that does not use a password to access the private key that is generated. Password protectiong the generated private key serves as a form of two factor authentication, What you have and What you know.
      - In Linux or macOS (I don't work on Windows) there is a native command "ssh-copy-id" to assist in the key transfer process and utilizes the command as follows:
