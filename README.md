@@ -192,14 +192,16 @@ After using Etcher, the flashed NVMe device will be unmounted. You **must** unpl
      sudo apt install curl net-tools npm sysbench -y
      ```
      The npm package is fairly large and will take a few minutes.
-  1. Install the argon 1 fan control drivers
+  1. Install the Argon ONE fan control drivers and scripts:
      ```
      curl https://download.argon40.com/argon1.sh | bash
      ```
-     The script will the configure script:
+     The script will install the configure script:
      ```
      argonone-config 
      ```
+     By running the config script, you can customize the fan speed based on temperature. The available temperature ranges are in degrees Celsius: 55, 60, 65. I have set my configuration to 50, 75 and 100 percent respecfully. The is also an option to have the fan run always on.
+
      Should you choose to uninstall, run the following:
      ```
      argonone-uninstall 
@@ -207,4 +209,8 @@ After using Etcher, the flashed NVMe device will be unmounted. You **must** unpl
   1. Once all of the updates are installed, a reboot is required:
      ```
      sudo systemctl reboot
+     ```
+  1. To keep the system free of unused packages, issue the following command:
+     ```
+     sudo apt autoremove -y
      ```
