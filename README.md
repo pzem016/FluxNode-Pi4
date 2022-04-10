@@ -193,7 +193,7 @@ After using Etcher, the flashed NVMe device will be unmounted. You **must** unpl
      ```
      The npm package is fairly large and will take a few minutes.
   
-  1. Once all of the updates are required, I suggest rebooting the system:
+  1. Once all of the updates are installed, I suggest rebooting the system:
      ```
      sudo systemctl reboot
      ```
