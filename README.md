@@ -24,9 +24,9 @@ Hardware used:
     - The **hard** way is to create a [Raspberry Pi official image with recommended software](https://downloads.raspberrypi.org/raspios_full_armhf/images/raspios_full_armhf-2022-04-07/2022-04-04-raspios-bullseye-armhf-full.img.xz) using an optional SD card and then completing the standard Pi configuration tasks. Once complete, use the Argon case to house the NVMe drive and flash it with the Ubuntu Pi OS.
 ### Modifying the flashed image configuration ***prior*** to first boot
 After using Etcher, the flashed NVMe divice will be unmounted. You **must** unplug it and plug it back in so the MSFAT configuration partition will become visible. The folowing reconfiguration items will be addressed: 
-1. Booting the Pi from the NVMe device
+1. **Booting the Pi from the NVMe device**
    - [The official Wiki is reference](https://wiki.ubuntu.com/ARM/RaspberryPi) Change the bootloader
-     - To set the device to boot from the USB MVNe device, we will modify, with a text editor, the config.txt file and change four things to reflect the following changes.
+     - To set the device to boot from the USB NVMe device, we will modify, with a text editor, the config.txt file and change four things to reflect the following changes.
 
        In the [pi4] section, add and comment out to look like this:
        ```
@@ -42,7 +42,7 @@ After using Etcher, the flashed NVMe divice will be unmounted. You **must** unpl
        ```
        Save and exit the file.
 
-1. Modifing the default username
+1. **Modifing the default username**
    - The offical Wiki above points to [cloud init](https://cloudinit.readthedocs.io/en/latest/topics/examples.html) where line number 139 shows the default user name syntax. I find it as a security exposure to have a know username, in this case "ubuntu" as half of the puzzle to hacking is a user name. What will be done is to create a user accont per your specification and further require that when using the "sudo" command, your password will be required to continue with command execution. I have used the generic John Smith name and you should change it accordingly. The file that needs editing is named "user-data" and notice it does not have an extension so you will need to choose your text editor to open the file. The "user-file" is in YAML format so you must pay careful attention to the indentations for the content to be propery understood.
 
      -  Comment out the expire section in the "user-data" file:
@@ -66,4 +66,7 @@ After using Etcher, the flashed NVMe divice will be unmounted. You **must** unpl
             sudo: ALL=(ALL) PASSWD:ALL
          ```
          Again, this file is in YAML format and must have the proper indentations. Do not use tabs. Instead use two space to make sure everything lines up per the above example. 
-1. Disabling IPV6
+
+### Modifing some configurations post installation 
+1. **Disabling IPV6**
+   - There have been compalints about IPv6 making the Pi network unstable. I have not personally experienced the issue but I will typically disable IPV6 for many reasons. My internal network does not use it, DNS can be adversely affected since IPV6 will be used first then IPv4 thus slowing down name resolution. To accomplish this task we will need to append 
