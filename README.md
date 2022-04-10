@@ -10,13 +10,14 @@ Hardware used:
 - [Sabrent USB 3.2 Type-C Tool-Free Enclosure for M.2 PCIe NVMe and SATA SSDs (EC-SNVE)](https://www.amazon.com/gp/product/B08RVC6F9Y/)
 - Optional SD Card for the **hard** way discussed below.
 
-## Official Flux Setup Guides
-- [Flux Light Node Setup](https://medium.com/@mmalik4/flux-light-node-setup-as-easy-as-it-gets-833f17c73dbb)
-- [FluxNode On Raspberry Pi 4b](https://fluxofficial.medium.com/fluxnode-on-raspberry-pi-4b-official-setup-guide-ae95f29dbe32)
+# References
+  ## Official Flux Setup Guides
+  - [Flux Light Node Setup](https://medium.com/@mmalik4/flux-light-node-setup-as-easy-as-it-gets-833f17c73dbb)
+  - [FluxNode On Raspberry Pi 4b](https://fluxofficial.medium.com/fluxnode-on-raspberry-pi-4b-official-setup-guide-ae95f29dbe32)
 
-## Official Flux YouTube videos
-- [Raspberry Pi FluxNode Setup Guide](https://www.youtube.com/watch?v=n2CMwfahUBI)
-- [Official FluxNode Setup Guide](https://www.youtube.com/watch?v=oKl3TelzYgY)
+  ## Official Flux YouTube videos
+  - [Official FluxNode Setup Guide](https://www.youtube.com/watch?v=oKl3TelzYgY)
+  - [Raspberry Pi FluxNode Setup Guide](https://www.youtube.com/watch?v=n2CMwfahUBI)
 
 ## Steps to prepare a Raspberry Pi 4 8GB With Ubuntu 20.04.4
 - Download the official Ubuntu Server 20.04.4 LTS 64-bit Pi Image
