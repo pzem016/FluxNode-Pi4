@@ -187,6 +187,8 @@ After using Etcher, the flashed NVMe device will be unmounted. You **must** unpl
      ```
      sudo apt upgrade -y
      ```
+     If you receive and error about a lock, wait a while for the self upgrade scripts to finish or reboot the system and try the update again.
+     
   1. There are some additional baseline requirements that must be installed:
      ```
      sudo apt install curl net-tools npm sysbench -y
