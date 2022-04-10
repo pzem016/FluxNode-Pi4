@@ -25,8 +25,8 @@ Hardware used:
 ### Modifying the flashed image configuration ***prior*** to first boot
 After using Etcher, the flashed NVMe divice will be unmounted. You **must** unplug it and plug it back in so the MSFAT configuration partition will be mounted. The folowing configuration items will be addressed: 
 1. Booting the Pi from the NVMe device
-   - [The official Wiki is reference](https://wiki.ubuntu.com/ARM/RaspberryPi)Change the bootloader
-     - To set the device to boot, we will modify the config.txt file and change four things
+   - [The official Wiki is reference](https://wiki.ubuntu.com/ARM/RaspberryPi) Change the bootloader
+     - To set the device to boot from the USB MVNe device, we will modify the config.txt file and change four things to reflect the following changes.
        In the [pi4] section, add and comment out to look like this:
        ```
        [pi4]
@@ -39,7 +39,7 @@ After using Etcher, the flashed NVMe divice will be unmounted. You **must** unpl
        [all]
        # device_tree_address=0x03000000
        ```
-      Save and exit the file.
+       Save and exit the file.
 
 1. Modifing the default username
 1. Disabling IPV6
