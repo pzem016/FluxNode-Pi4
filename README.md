@@ -192,8 +192,19 @@ After using Etcher, the flashed NVMe device will be unmounted. You **must** unpl
      sudo apt install curl net-tools npm sysbench -y
      ```
      The npm package is fairly large and will take a few minutes.
-  
-  1. Once all of the updates are installed, I suggest rebooting the system:
+  1. Install the argon 1 fan control drivers
+     ```
+     curl https://download.argon40.com/argon1.sh | bash
+     ```
+     The script will the configure script:
+     ```
+     argonone-config 
+     ```
+     Should you choose to uninstall, run the following:
+     ```
+     argonone-uninstall 
+     ```
+  1. Once all of the updates are installed, a reboot is required:
      ```
      sudo systemctl reboot
      ```
