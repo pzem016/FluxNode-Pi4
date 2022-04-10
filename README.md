@@ -122,11 +122,11 @@ After using Etcher, the flashed NVMe divice will be unmounted. You **must** unpl
        ssh-copy-id -i <your public id file name> jsmith@<the Pi IP Address>
        ```
        When connecting for the first time to the Pi server, being asked to trust the server's public key is normal. It requires you to type either yes or y to continue (depending on the OS being used). Once the command connects to the server and attempts to authenticate, you must type in you password as specified in the  above prior step.
-   - With the key transfer preperation work complete we are ready to modify /etc/ssh/sshd_config. This file can be overwhelming so we will sear for keywords and modify the values accordingly. Using "nano" as the text editor, the command <ctrl>w will allow us to search. Most of the parameters are comented out so simply removing the "#" will enable the parameter. If any of the below suggested modifications are commented out, then remove the "#" and set the values accordingly. Lets start.
+   - With the key transfer preperation work complete we are ready to modify /etc/ssh/sshd_config. This file can be overwhelming so we will sear for keywords and modify the values accordingly. Using "nano" as the text editor, the command [ctrl]w will allow us to search. Most of the parameters are comented out so simply removing the "#" will enable the parameter. If any of the below suggested modifications are commented out, then remove the "#" and set the values accordingly. Lets start.
    ```
    sudo nano /etc/ssh/sshd_config
    ```
-   Search for <ctrl>w:
+   Search for [ctrl]w:
      - PermitRootLogin
        Change to: 
        PermitRootLogin prohibit-password
