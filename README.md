@@ -125,7 +125,7 @@ After using Etcher, the flashed NVMe device will be unmounted. You **must** unpl
 
        It is worth the mention that puTTY, WinSCP or SecureCRT have similar functions to transfer the public key to the server so look at your ssh client for details. When I do work on Windows, I use SecureCRT which is not free but a very stable and well-maintained product (highly recommended).
    - With the key transfer preparation work complete, we are ready to modify /etc/ssh/sshd_config. This file can be overwhelming so we will search for keywords and modify the values accordingly. Using "nano" as the text editor, the command [ctrl]w will allow us to search. Most of the parameters are commented out so simply removing the "#" will enable the parameter. If any of the below suggested modifications are commented out, then remove the "#" first then set the values accordingly. Let’s start.
-   
+
       ```
       sudo nano /etc/ssh/sshd_config
       ```
@@ -177,4 +177,4 @@ After using Etcher, the flashed NVMe device will be unmounted. You **must** unpl
         ```
         sudo systemctl reboot
         ```
-   You should now be able to connect to the Pi using your favorite ssh client and your public key.
+  You should now be able to connect to the Pi using your favorite ssh client and with your public key.
