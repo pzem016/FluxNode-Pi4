@@ -224,3 +224,4 @@ After using Etcher, the flashed NVMe device will be unmounted. You **must** unpl
      ```
      sudo apt autoremove -y
      ```
+[Install Flux](https://www.youtube.com/watch?v=n2CMwfahUBI&t=2130s)
