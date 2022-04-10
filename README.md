@@ -25,7 +25,7 @@ Hardware used:
 ### Modifying the flashed image configuration ***prior*** to first boot
 After using Etcher, the flashed NVMe divice will be unmounted. You **must** unplug it and plug it back in so the MSFAT configuration partition will become visible. The folowing reconfiguration items will be addressed: 
 1. **Booting the Pi from the NVMe device**
-   - [The official Wiki is reference](https://wiki.ubuntu.com/ARM/RaspberryPi) Change the bootloader
+   - [The official Wiki is referenced](https://wiki.ubuntu.com/ARM/RaspberryPi) Change the bootloader
      - To set the device to boot from the USB NVMe device, we will modify, with a text editor, the config.txt file and change four things to reflect the following changes.
 
        In the [pi4] section, add and comment out to look like this:
@@ -116,12 +116,14 @@ After using Etcher, the flashed NVMe divice will be unmounted. You **must** unpl
 
    - Although this step is not required, it is highly reccomended to force ssh to use public keys for authentication. If you were to publish ssh to the Pi server through your firewall, there are BOT's on the Internet that will hammer ssh attempting to gain unauthorized access.
      - It is beyond the scope of this article to create a private/public key for use in ssh. Some simple Googling of this process will help. I would discourage the key generation process that does not use a password to access the private key that is generated. Password protectiong the generated private key serves as a form of two factor authentication, What you have and What you know.
-     - In Linux or macOS (I don't work on Windows) there is a native command "ssh-copy-id" to assist in the key transfer process and utilize the command as follows:
+     - In Linux or macOS (I generally don't work on Windows) there is a native command "ssh-copy-id" to assist in the key transfer process and utilize the command as follows:
        ```
        cd ~/.ssh
        ssh-copy-id -i <your public id file name> jsmith@<the Pi IP Address>
        ```
-       When connecting for the first time to the Pi server, being asked to trust the server's public key is normal. It requires you to type either yes or y to continue (depending on the OS being used). Once the command connects to the server and attempts to authenticate, you must type in you password as specified in the  above prior step.
+       When connecting for the first time to the Pi server, being asked to trust the server's public key is normal. It requires you to type either yes or y to continue (depending on the OS being used). Once the command connects to the server and attempts to authenticate, you must type in you password as specified in the above prior step.
+
+       It is worth the mention that puTTY, WinSCP or SecureCRT have similar functions to transfert the public key to the server so look at your ssh client for details. Wen I do work on Windows, I use SecureCRT which is not free but a very stable and well maintained product (highly recommended).
    - With the key transfer preperation work complete we are ready to modify /etc/ssh/sshd_config. This file can be overwhelming so we will sear for keywords and modify the values accordingly. Using "nano" as the text editor, the command [ctrl]w will allow us to search. Most of the parameters are comented out so simply removing the "#" will enable the parameter. If any of the below suggested modifications are commented out, then remove the "#" and set the values accordingly. Lets start.
    ```
    sudo nano /etc/ssh/sshd_config
@@ -157,16 +159,16 @@ After using Etcher, the flashed NVMe divice will be unmounted. You **must** unpl
        Change to:
 
        PermitEmptyPasswords no
-     - Optionaly change to port to something other than 22, such as 64222
+     - Optionaly change the port to something other than 22, such as 64222
        - Port
          
          Change to:
-         
+
          Port 642222
 
      Save the file and exit.
 
-     The ssh daemon needs to restarted to enact the change.
+     The ssh daemon needs to be restarted to enact the change.
      ```
      sudo systemctl restart ssh.service
      ```
