@@ -149,7 +149,9 @@ After using Etcher, the flashed NVMe divice will be unmounted. You **must** unpl
        - Port
          Change to:
          Port 642222
+
      Save the file and exit.
+     
      The ssh daemon needs to restarted to enact the change.
      ```
      sudo systemctl restart ssh.service
