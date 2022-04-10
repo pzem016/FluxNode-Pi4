@@ -23,11 +23,11 @@ Hardware used:
     - The **easy** way is to use the external enclosure listed above. Then from the comfort of your desktop operating system, use balenaEtcher to write the image. Etcher is very intuitive where you select the downloaded image, select the destination then click flash. Etcher will ask if you are sure because the destination NVMe drive is large, answer yes.
     - The **hard** way is to create a [Raspberry Pi official image with recommended software](https://downloads.raspberrypi.org/raspios_full_armhf/images/raspios_full_armhf-2022-04-07/2022-04-04-raspios-bullseye-armhf-full.img.xz) using an optional SD card and then completing the standard Pi configuration tasks. Once complete, use the Argon case to house the NVMe drive and flash it with the Ubuntu Pi OS.
 ### Modifying the flashed image configuration ***prior*** to first boot
-After using Etcher, the flashed NVMe divice will be unmounted. You **must** unplug it and plug it back in so the MSFAT configuration partition will be mounted. The folowing configuration items will be addressed: 
+After using Etcher, the flashed NVMe divice will be unmounted. You **must** unplug it and plug it back in so the MSFAT configuration partition will become visible. The folowing reconfiguration items will be addressed: 
 1. Booting the Pi from the NVMe device
    - [The official Wiki is reference](https://wiki.ubuntu.com/ARM/RaspberryPi) Change the bootloader
-     - To set the device to boot from the USB MVNe device, we will modify the config.txt file and change four things to reflect the following changes.
-     
+     - To set the device to boot from the USB MVNe device, we will modify, with a text editor, the config.txt file and change four things to reflect the following changes.
+
        In the [pi4] section, add and comment out to look like this:
        ```
        [pi4]
@@ -43,4 +43,26 @@ After using Etcher, the flashed NVMe divice will be unmounted. You **must** unpl
        Save and exit the file.
 
 1. Modifing the default username
+   - The offical Wiki above points to [cloud init](https://cloudinit.readthedocs.io/en/latest/topics/examples.html) where line number 139 shows the default user name syntax. I find it as a security exposure to have a know username, in this case "ubuntu" as half of the puzzle to hacking is a user name. What will be done is to create a user accont per your specification and further require that when using the "sudo" command, your password will be required to continue with command execution. I have used the generic John Smith name and you should change it accordingly. The file that needs editing is named "user-data" and notice it does not have an extension so you will need to choose your text editor to open the file. The "user-file" is in YAML format so you must pay careful attention to the indentations for the content to be propery understood.
+
+     -  Comment out the expire section in the "user-data" file:
+       ```
+       #chpasswd:
+       #  expire: true
+       #  list:
+       #  - ubuntu:ubuntu
+       ```
+     -  Add the following just after the above commented out section:
+       ```
+       system_info:
+         default_user:
+           name: jsmith
+           plain_text_passwd: 'password'
+           home: /home/jsmith
+           shell: /bin/bash
+           lock_passwd: False
+           gecos: John Smith
+           groups: [adm, audio, cdrom, dialout, floppy, video, plugdev, dip, netdev]
+           sudo: ALL=(ALL) PASSWD:ALL
+       ```
 1. Disabling IPV6
