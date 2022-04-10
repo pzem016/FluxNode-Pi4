@@ -67,7 +67,7 @@ After using Etcher, the flashed NVMe divice will be unmounted. You **must** unpl
          ```
          Again, this file is in YAML format and must have the proper indentations. Do not use tabs. Instead use two space to make sure everything lines up per the above example. 
 
-### Modifing some configurations post installation 
+### Modifing the configuration post installation 
 1. **Disabling IPV6**
    - There have been compalints about IPv6 making the Pi network unstable. I have not personally experienced the issue but I will typically disable IPV6 for many reasons. My internal network does not use it, DNS can be adversely affected since IPV6 will be used first then IPv4 thus slowing down name resolution. To accomplish this task we will need to append some lines to /etc/sysctl.conf and create a file and change permissions on /etc/rc.local
      - Modify /etc/sysctl.conf by appending to the bottom of the file
@@ -100,8 +100,24 @@ After using Etcher, the flashed NVMe divice will be unmounted. You **must** unpl
        ```
        sudo chmod 755 /etc/rc.local
        ```
-       
+
      - To enact these changes, a reboot is required
        ```
        sudo reboot
        ```
+1. **Changing the user password**
+   In the above configuration for setting the default user credential, a simple clear text password was shown. Because the user configuration file "user-data" remains on the device in clear text, use the standard Linux password utility to change your password once logged in as follows. Again the generic name is used in this example.
+   ```
+   passwd jsmith
+   ```
+   Your are prompted for the current password and then the new password followed by confirmation of the new password. 
+1. **Changing the SSH Daemon to force public key authentication only**
+   - Although this step is not required, it is highly reccomended to force ssh to use public keys for authentication. If you were to publish ssh to the Pi server through your firewall, there are BOT's on the Internet that will hammer ssh attempting to gain unauthorized access.
+     - It is beyond the scope of this article to create a private/public key for use in ssh. Some simple Googling of this process will help. I would discourage the key generation process that does not use a password to access the private key that is generated. Password protectiong the generated private key serves as a form of two factor authentication, What you have and What you know.
+     - In Linux or macOS (I don't work on Windows) there is a native command "ssh-copy-id" to assist in the key transfer process and utilizes the command as follows:
+       ```
+       cd ~/.ssh
+       ssh-copy-id -i **your public id file name** jsmith@**the Pi IP Address**
+       ```
+       When connecting for the first time to the Pi server, being asked to trust the server's public key is normal. It requires you to type either yes or y to continue (depending on the OS being used). Once the command connects to the server and attempts to authenticate, you must type in you password as specified in the  above prior step.
+
