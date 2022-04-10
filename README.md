@@ -64,6 +64,6 @@ After using Etcher, the flashed NVMe divice will be unmounted. You **must** unpl
             gecos: John Smith
             groups: [adm, audio, cdrom, dialout, floppy, video, plugdev, dip, netdev]
             sudo: ALL=(ALL) PASSWD:ALL
-        ```
-        Again, this file is in YAML format and must have the proper indentations. Do not use tabs. Instead use two space to make sure everything lines up per the above example. 
+         ```
+         Again, this file is in YAML format and must have the proper indentations. Do not use tabs. Instead use two space to make sure everything lines up per the above example. 
 1. Disabling IPV6
