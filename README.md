@@ -1,7 +1,7 @@
 # Flux Cumulus Node on a Raspberry Pi 4B with 8GB Ram
 The purpose of this repository is to memorialize preparing a Pi for use as a Flux Cumulus Node. The official online YouTube example is a good foundation starting point, however it maintains the dependency for the Pi to boot off of a SD card which, in my opinion, is a bad idea because the example configuration still has files being read/written to the SD card. Booting off of a NVMe device, since it is required to pass disk benchmark speeds anyway, is a more dependable solution and simplifies things in the long run thus making the installation mimic the virtual server setup examples.
 
-Hardware used:
+## Hardware used:
 - [Raspberry Pi 4B 8 GB Ram](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
 - [Argon ONE M.2 Case for Raspberry Pi 4](https://www.argon40.com/products/argon-one-m-2-case-for-raspberry-pi-4)
   - I have used this case in other Pi projects and find it to be a good design for its size, NVMe interface, heat dissipation, power switch, GPIO access and HDMI port size redirection (mini to full size).
