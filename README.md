@@ -10,12 +10,12 @@ Hardware used:
 - [Sabrent USB 3.2 Type-C Tool-Free Enclosure for M.2 PCIe NVMe and SATA SSDs (EC-SNVE)](https://www.amazon.com/gp/product/B08RVC6F9Y/)
 - Optional SD Card for the **hard** way discussed below.
 
-# References
-  ## Official Flux Setup Guides
+### References
+  #### Official Flux Setup Guides
   - [Flux Light Node Setup](https://medium.com/@mmalik4/flux-light-node-setup-as-easy-as-it-gets-833f17c73dbb)
   - [FluxNode On Raspberry Pi 4b](https://fluxofficial.medium.com/fluxnode-on-raspberry-pi-4b-official-setup-guide-ae95f29dbe32)
 
-  ## Official Flux YouTube videos
+  #### Official Flux YouTube videos
   - [Official FluxNode Setup Guide](https://www.youtube.com/watch?v=oKl3TelzYgY)
   - [Raspberry Pi FluxNode Setup Guide](https://www.youtube.com/watch?v=n2CMwfahUBI)
 
